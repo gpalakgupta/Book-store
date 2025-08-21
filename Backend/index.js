@@ -17,15 +17,16 @@ app.use(express.urlencoded({ extended: true }));
 connectDB();
 
 const PORT = process.env.PORT || 3000;
- 
+
 
 app.use("/api/auth", authRoute);
 app.use("/api/books", bookRoutes);
 app.use("/api/orders", orderRoutes);
 
-app.get('/',(req,res)=>{
-    res.send('Welcome to the Book Store');
+app.get('/', (req, res) => {
+  res.send('Welcome to the Book Store');
 })
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
