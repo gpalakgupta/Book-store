@@ -35,3 +35,43 @@ export const getAllBooks = async (req, res) => {
     res.status(500).json({ message: "Error fetching books", error });
   }
 };
+
+// get a single book by ID
+
+export const getBookById = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const book = await Book.findById(id);
+    if (!book) {
+      return res.status(404).json({ message: "Book not found" });
+    }
+    res.status(200).json({ book });
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching book", error });
+  }
+};
+
+// update a book
+
+export const updateBook = async (req, res) => {
+  const { id } = req.params;
+  const { title, author, description, price } = req.body;
+
+  try {
+    const book = await Book.findById(id);
+    if (!book) {
+      return res.status(404).json({ message: "Book not found" });
+    }
+
+    book.title = title || book.title;
+    book.author = author || book.author;
+    book.description = description || book.description;
+    book.price = price || book.price;
+
+    await book.save();
+    res.status(200).json({ message: "Book updated successfully", book });
+  } catch (error) {
+    res.status(500).json({ message: "Error updating book", error });
+  }
+};
