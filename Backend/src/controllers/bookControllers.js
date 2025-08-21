@@ -23,3 +23,15 @@ export const createBook = async (req, res) => {
     res.status(500).json({ message: "Error creating book", error });
   }
 };
+
+
+// get all books
+
+export const getAllBooks = async (req, res) => {
+  try {
+    const books = await Book.find();
+    res.status(200).json({ books });
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching books", error });
+  }
+};
