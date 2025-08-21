@@ -67,3 +67,17 @@ export const getMyOrder = async (req, res) => {
         res.status(500).json({ message: "Error fetching orders", error });
     }
 }
+
+
+// get all orders
+export const getAllOrders = async (req, res) => {
+    try {
+        const orders = await Order.find().populate("books.book", "title price").sort({ createdAt: -1 });
+        res.status(200).json({ orders });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: "Error fetching orders", error });
+    }
+}
+
+
