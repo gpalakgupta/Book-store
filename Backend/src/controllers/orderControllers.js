@@ -11,7 +11,7 @@ export const createOrder = async (req, res) => {
         if (!user) {
             return res.status(404).json({ message: "User not found" });
         }
-        
+
         const bookIds = books.map(book => book.book);
         const bookDocs = await Book.find({ _id: { $in: bookIds } });
 
@@ -54,3 +54,16 @@ export const createOrder = async (req, res) => {
         res.status(500).json({ message: "Error creating order", error });
     }
 };
+
+
+// get my orders
+export const getMyOrder = async (req, res) => {
+    try {
+        const userId = req.user._id;
+        const orders = await Order.find({ user: userId }).populate("books.book", "title price").sort({ createdAt: -1 });
+        res.status(200).json({ orders });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: "Error fetching orders", error });
+    }
+}
