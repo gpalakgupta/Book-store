@@ -24,7 +24,7 @@ app.use("/api/books", bookRoutes);
 app.use("/api/orders", orderRoutes);
 
 app.get('/', (req, res) => {
-  res.send('Welcome to the Book Store');
+  res.send('Welcome to the Book Store !!');
 })
 
 
