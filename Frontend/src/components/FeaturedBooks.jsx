@@ -101,6 +101,8 @@ const FeaturedBooks = () => {
             <option value="Self-Help">Self-Help</option>
             <option value="Romance">Romance</option>
             <option value="Memoir">Memoir</option>
+            <option value="Thriller">Thriller</option>
+            <option value="Biography">Biography</option>
           </select>
         </div>
       </div>

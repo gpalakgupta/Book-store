@@ -7,7 +7,7 @@ export default function Navbar() {
   const [cartCount] = useState(3);
 
   return (
-    <nav className="w-full shadow-sm bg-white">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white/30 backdrop-blur-md shadow-md">
       <div className="container mx-auto flex items-center justify-between px-6 py-3">
         {/* Logo */}
         <div className="flex items-center space-x-2">
@@ -17,7 +17,7 @@ export default function Navbar() {
 
         {/* Search Bar */}
         <div className="flex items-center w-1/3">
-          <div className="flex items-center w-full border border-gray-300 rounded-lg px-3 py-2">
+          <div className="flex items-center w-full border border-gray-300 rounded-lg px-3 py-2 bg-white/60">
             <FaSearch className="text-gray-400 mr-2" />
             <input
               type="text"
@@ -29,13 +29,13 @@ export default function Navbar() {
 
         {/* Nav Links */}
         <div className="flex items-center space-x-6">
-          <a href="#" className="text-gray-700 hover:text-orange-500">
+          <a href="#" className="text-gray-800 hover:text-orange-500">
             Home
           </a>
-          <a href="#" className="text-gray-700 hover:text-orange-500">
+          <a href="#" className="text-gray-800 hover:text-orange-500">
             Books
           </a>
-          <a href="#" className="text-gray-700 hover:text-orange-500">
+          <a href="#" className="text-gray-800 hover:text-orange-500">
             Cart
           </a>
 
