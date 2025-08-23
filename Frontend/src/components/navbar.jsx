@@ -1,4 +1,4 @@
- 
+// src/components/Navbar.jsx
 import { useState } from "react";
 import { FaShoppingCart, FaSearch } from "react-icons/fa";
 import { FiBookOpen } from "react-icons/fi";
@@ -17,7 +17,7 @@ export default function Navbar() {
 
         {/* Search Bar */}
         <div className="flex items-center w-1/3">
-          <div className="flex items-center w-full border-2 border-orange-200 rounded-lg px-3 py-2">
+          <div className="flex items-center w-full border border-gray-300 rounded-lg px-3 py-2">
             <FaSearch className="text-gray-400 mr-2" />
             <input
               type="text"
