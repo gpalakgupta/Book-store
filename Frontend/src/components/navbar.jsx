@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { FaShoppingCart, FaSearch } from "react-icons/fa";
 import { FiBookOpen } from "react-icons/fi";
+import { Link } from "react-scroll";   // ✅ react-scroll import
 
 export default function Navbar() {
   const [cartCount] = useState(3);
@@ -10,10 +11,15 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 w-full z-50 bg-white/30 backdrop-blur-md shadow-md">
       <div className="container mx-auto flex items-center justify-between px-6 py-3">
         {/* Logo */}
-        <div className="flex items-center space-x-2">
+        <Link
+          to="home"
+          smooth={true}
+          duration={500}
+          className="flex items-center space-x-2 cursor-pointer"
+        >
           <FiBookOpen className="text-orange-500 text-2xl" />
           <span className="text-xl font-bold text-orange-500">BookHaven</span>
-        </div>
+        </Link>
 
         {/* Search Bar */}
         <div className="flex items-center w-1/3">
@@ -29,12 +35,22 @@ export default function Navbar() {
 
         {/* Nav Links */}
         <div className="flex items-center space-x-6">
-          <a href="#" className="text-gray-800 hover:text-orange-500">
+          <Link
+            to="home"
+            smooth={true}
+            duration={500}
+            className="text-gray-800 hover:text-orange-500 cursor-pointer"
+          >
             Home
-          </a>
-          <a href="#" className="text-gray-800 hover:text-orange-500">
+          </Link>
+          <Link
+            to="books"
+            smooth={true}
+            duration={500}
+            className="text-gray-800 hover:text-orange-500 cursor-pointer"
+          >
             Books
-          </a>
+          </Link>
           <a href="#" className="text-gray-800 hover:text-orange-500">
             Cart
           </a>
