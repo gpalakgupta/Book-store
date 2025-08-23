@@ -1,22 +1,30 @@
-// src/components/Navbar.jsx
 import { useState } from "react";
 import { FaShoppingCart, FaSearch } from "react-icons/fa";
 import { FiBookOpen } from "react-icons/fi";
-import { Link } from "react-scroll";   // ✅ react-scroll import
+import { Link, useLocation } from "react-router-dom";
+import { scroller } from "react-scroll";
 
 export default function Navbar() {
   const [cartCount] = useState(3);
+  const location = useLocation();
+
+  // ✅ Hero section par scroll karne ka function
+  const scrollToHero = () => {
+    if (location.pathname === "/") {
+      scroller.scrollTo("hero-section", {
+        duration: 500,
+        smooth: true,
+        offset: -70,
+      });
+    }
+  };
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-white/30 backdrop-blur-md shadow-md">
       <div className="container mx-auto flex items-center justify-between px-6 py-3">
+        
         {/* Logo */}
-        <Link
-          to="home"
-          smooth={true}
-          duration={500}
-          className="flex items-center space-x-2 cursor-pointer"
-        >
+        <Link to="/" className="flex items-center space-x-2 cursor-pointer">
           <FiBookOpen className="text-orange-500 text-2xl" />
           <span className="text-xl font-bold text-orange-500">BookHaven</span>
         </Link>
@@ -35,30 +43,26 @@ export default function Navbar() {
 
         {/* Nav Links */}
         <div className="flex items-center space-x-6">
-          <Link
-            to="home"
-            smooth={true}
-            duration={500}
-            className="text-gray-800 hover:text-orange-500 cursor-pointer"
-          >
+          {/* ✅ Home scrolls to Hero */}
+          <Link to="/" onClick={scrollToHero} className="text-gray-800 hover:text-orange-500">
             Home
           </Link>
-          <Link
-            to="books"
-            smooth={true}
-            duration={500}
-            className="text-gray-800 hover:text-orange-500 cursor-pointer"
-          >
+
+          {/* ✅ Books page */}
+          <Link to="/books" className="text-gray-800 hover:text-orange-500">
             Books
           </Link>
-          <a href="#" className="text-gray-800 hover:text-orange-500">
-            Cart
-          </a>
 
-          {/* Login Button */}
-          <button className="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600">
-            Login
-          </button>
+          <Link to="/cart" className="text-gray-800 hover:text-orange-500">
+            Cart
+          </Link>
+
+          {/* ✅ Login Page */}
+          <Link to="/login">
+            <button className="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600">
+              Login
+            </button>
+          </Link>
 
           {/* Cart Icon */}
           <div className="relative">

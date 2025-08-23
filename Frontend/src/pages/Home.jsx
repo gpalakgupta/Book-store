@@ -14,6 +14,7 @@ const Home = () => {
         <FeaturedBooks />
       </section>
       <Footer />
+       
     </>
   );
 };
