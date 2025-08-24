@@ -2,7 +2,7 @@ import React from "react";
 
 const Login = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-white">
+    <div className="flex flex-col items-center justify-center py-12 pt-36 bg-white">
       <div className="w-full max-w-md p-8 bg-orange-50 rounded-xl shadow-md">
         <h2 className="text-2xl font-bold text-center mb-2">Welcome Back</h2>
         <p className="text-center text-gray-600 mb-6">
