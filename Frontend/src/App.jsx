@@ -5,6 +5,7 @@ import FeaturedBooks from "./components/FeaturedBooks.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import Signup from "./pages/signUp.jsx";
 import ForgotPassword from "./pages/forgetPassword.jsx";
+import CartPage from "./pages/cartPage.jsx";
 
 export default function App() {
   return (
@@ -17,7 +18,8 @@ export default function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/cart" element={<h1>Cart Page Coming Soon!</h1>} />
+
+          <Route path="/cart" element={<CartPage />} />
         </Route>
       </Routes>
     </Router>
