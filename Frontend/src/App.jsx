@@ -2,7 +2,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout.jsx";
 import Home from "./pages/Home.jsx";
 import FeaturedBooks from "./components/FeaturedBooks.jsx";
-import LoginPage from "./components/Login.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
+import Signup from "./pages/signUp.jsx";
+import ForgotPassword from "./pages/forgetPassword.jsx";
 
 export default function App() {
   return (
@@ -13,6 +15,8 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/books" element={<FeaturedBooks />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/cart" element={<h1>Cart Page Coming Soon!</h1>} />
         </Route>
       </Routes>
